@@ -6,7 +6,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise3();
+            Exercise4();
         }
 
 
@@ -67,6 +67,26 @@ namespace CourseWeek2Lesson7
             };
             Console.WriteLine(result);
         }
+
+        private static void Exercise4()
+        {
+            /* 4. Napisz program w C#, który sprawdzi czy podany przez użytkownika rok jest rokiem przestępnym.
+                    Dane testowe : 2016
+                Rezultat w terminalu :
+                    2016 jest rokiem przestępnym    */
+
+            Console.Write("Podaj 4 cyfry roku: ");
+            int year = int.Parse(Console.ReadLine());
+            bool isLeapYear = (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) ? true : false;
+            string result = isLeapYear switch
+            {
+                true => "jest rokiem przestępnym.",
+                _ => "nie jest rokiem przestępnym."
+            };
+            Console.WriteLine($"{year} {result}");
+            
+        }
+
 
     }
 }
