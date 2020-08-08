@@ -8,7 +8,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise9();
+            Exercise10();
         }
 
 
@@ -196,6 +196,26 @@ namespace CourseWeek2Lesson7
                 _ when temperature >= 40 => "-...a weź wyprowadzam się na Alaskę."
             };
             Console.WriteLine(desc);
+        }
+
+        public static void Exercise10()
+        {
+            /* 10. Napisz program, który sprawdzi, czy z 3 podanych długości można stworzyć trójkąt
+                        Dane testowe : 40 55 65
+                    Rezultat w terminalu :
+                        Można zbudować trójkąt      */
+
+            int firstNb = 40;
+            int secondNb = 55;
+            int thirdNb = 65;
+
+            int highestNb = firstNb >= secondNb ? (firstNb >= thirdNb ? firstNb : secondNb >= thirdNb ? secondNb : thirdNb) : (secondNb >= thirdNb ? secondNb : thirdNb);
+
+            bool isRectanglable = false;
+            if (highestNb < (firstNb + secondNb + thirdNb - highestNb)) { isRectanglable = true; }
+
+            string answer = isRectanglable == true ? "Można zbudować trójkąt" : "Nie można zbudować trójkąta";
+            Console.WriteLine(answer);
         }
 
 
