@@ -6,7 +6,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise2();
+            Exercise3();
         }
 
 
@@ -50,6 +50,23 @@ namespace CourseWeek2Lesson7
             return number;
         }
 
+        private static void Exercise3()
+        {
+            /* 3. Napisz program w C#, który sprawdzi czy podana przez użytkownika liczba jest dodatnia czy ujemna.
+                    Dane testowe : 14
+                Rezultat w terminalu :
+                    14 jest liczbą dodatnią     */
+
+            Console.Write("Podaj liczbę: ");
+            int number = int.Parse(Console.ReadLine());
+            string result = number switch
+            {
+                _ when number > 0 => $"{number} jest liczbą dodatnią.",
+                _ when number < 0 => $"{number} jest liczbą ujemną.",
+                _ => $"{number} wynosi zero."
+            };
+            Console.WriteLine(result);
+        }
 
     }
 }
