@@ -7,7 +7,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise6();
+            Exercise7();
         }
 
 
@@ -124,6 +124,21 @@ namespace CourseWeek2Lesson7
             Console.WriteLine($"Podany wzrost ({height}) określony został jako: {result}");
         }
 
+        public static void Exercise7()
+        {
+            /* 7. Napisz program w C#, który pobierze 3 liczby od użytkownika i sprawdzi, która jest największa
+                    Dane testowe: 25, 63, 79
+                Rezultat w terminalu :
+                    79 jest największa z podanych       */
+
+            Console.WriteLine("Podaj kolejno trzy liczby: ");
+            int firstNb = int.Parse(Console.ReadLine());
+            int secondNb = int.Parse(Console.ReadLine());
+            int thirdNb = int.Parse(Console.ReadLine());
+
+            int highestNb = firstNb >= secondNb ? (firstNb >= thirdNb ? firstNb : secondNb >= thirdNb ? secondNb : thirdNb ) : (secondNb >= thirdNb ? secondNb : thirdNb);
+            Console.WriteLine($"{highestNb} jest największą z podanych liczb.");
+        }
 
     }
 }
