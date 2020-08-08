@@ -7,7 +7,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise5();
+            Exercise6();
         }
 
 
@@ -102,6 +102,26 @@ namespace CourseWeek2Lesson7
             if (age >= 21) result += result.Length == 0 ? "Kandydat może ubiegać się o urząd Posła na Sejm" : " lub Posła na Sejm";
             result += result.Length != 0 ? "." : "Kandydat jest zbyt młody by pełnić urząd w państwie polskim.";
             Console.WriteLine(result);
+        }
+
+
+        public static void Exercise6()
+        {
+            /* 6. Napisz program w C#, który pobierze wzrost użytkownika i przypisze mu wymyśloną kategorię wzrostu.
+                    Dane testowe : 140
+                Rezultat w terminalu:
+                    Jesteś krasnoludem      */
+
+            Console.WriteLine("Podaj wzrost aby otrzymać informacje zwrotną o wymyślonej kategorii do której zostanie dopasowany: ");
+            int height = int.Parse(Console.ReadLine());
+            string result = height switch
+            {
+                _ when height > 180 => "wysoki",
+                _ when height < 191 && height > 165 => "typowy",
+                _ when height <= 165 && height >= 120 => "kobieta?",
+                _ => "dziecko?"
+            };
+            Console.WriteLine($"Podany wzrost ({height}) określony został jako: {result}");
         }
 
 
