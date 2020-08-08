@@ -9,7 +9,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise12();
+            Exercise13();
         }
 
 
@@ -272,6 +272,38 @@ namespace CourseWeek2Lesson7
 
             var cultureInfo = new CultureInfo("pl-PL");
             Console.WriteLine($"{day.Number} dniem tygodnia jest {cultureInfo.DateTimeFormat.GetDayName(day.Name)}");
+        }
+
+        public static void Exercise13()
+        {
+            /* 13. Napisz program, który będzie posiadał proste menu (wg. Wzoru poniżej) I będzie prostym kalkulatorem
+                        Podaj pierwszą liczbę:
+                                …
+                        Podaj drugą liczbę:
+                                …
+                        Podaj numer operacji do wykonania:
+                            1. Dodawanie
+                            2. Odejmowanie
+                            3. Mnożenie
+                            4. Dzielenie
+                                …
+                        Twój wynik to:          */
+
+            Console.WriteLine("Prosty kalkulator");
+            Console.WriteLine("Podaj pierwsza liczbę: ");
+            double firstNb = int.Parse(Console.ReadLine());
+            Console.WriteLine("Podaj drugą liczbę: ");
+            double secondNb = int.Parse(Console.ReadLine());
+            Console.WriteLine("Podaj numer operacji do wykonania:\r\n1. Dodawanie\r\n2. Odejmowanie\r\n3. Mnożenie\r\n4.Dzielenie");
+            int choice = int.Parse(Console.ReadLine());
+            double result = choice switch
+            {
+                1 => firstNb + secondNb,
+                2 => firstNb - secondNb,
+                3 => firstNb * secondNb,
+                4 => firstNb / secondNb
+            };
+            Console.WriteLine($"Twój wynik to {result}");
         }
 
 
