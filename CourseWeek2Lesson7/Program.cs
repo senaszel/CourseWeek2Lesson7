@@ -7,7 +7,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise7();
+            Exercise8();
         }
 
 
@@ -136,9 +136,41 @@ namespace CourseWeek2Lesson7
             int secondNb = int.Parse(Console.ReadLine());
             int thirdNb = int.Parse(Console.ReadLine());
 
-            int highestNb = firstNb >= secondNb ? (firstNb >= thirdNb ? firstNb : secondNb >= thirdNb ? secondNb : thirdNb ) : (secondNb >= thirdNb ? secondNb : thirdNb);
+            int highestNb = firstNb >= secondNb ? (firstNb >= thirdNb ? firstNb : secondNb >= thirdNb ? secondNb : thirdNb) : (secondNb >= thirdNb ? secondNb : thirdNb);
             Console.WriteLine($"{highestNb} jest największą z podanych liczb.");
         }
+
+        public static void Exercise8()
+        {
+            /* 8. Napisz program, który sprawdzi, czy kandydat może ubiegać się o miejsce na studiach wg. Następujących kryteriów:
+                    Wynik z Matury z matematyki powyżej 70
+                    Wynik z fizyki powyżej 55
+                    Wynik z chemii powyżej 45
+                    Łączny wynik z 3 przedmiotów powyżej 180
+                Albo
+                    Wynik z matematyki i jednego przedmiotu powyżej 150
+                    Dane testowe:
+                    Matematyka 80, Fizyka 71, Chemia 0
+                Rezultat w terminalu :
+                    Kandydat dopuszczony do rekrutacji      */
+
+            Console.WriteLine("Program udzieli informacji o możliwości wzięcia udziału w rekrutacji. Proszę podać następujące wyniki: ");
+            Console.Write("Wynik z matury z matematyki: ");
+            int mathGrade = int.Parse(Console.ReadLine());
+            Console.Write("Wynik z matury z fizyki: ");
+            int physicsGrade = int.Parse(Console.ReadLine());
+            Console.Write("Wynik z matury z chemii: ");
+            int chemistryGrade = int.Parse(Console.ReadLine());
+
+            bool suitableForRecrutation = false;
+            if (((mathGrade + physicsGrade + chemistryGrade) > 180) || (mathGrade + physicsGrade > 150) || (mathGrade + chemistryGrade > 150))
+            {
+                suitableForRecrutation = true;
+            }
+            string evaluationResponse = suitableForRecrutation == true ? "Kandydat dopuszczony do rekrutacji" : "Kandydat nie spełniający wymagań rekrutacyjnych";
+            Console.WriteLine(evaluationResponse);
+        }
+
 
     }
 }
