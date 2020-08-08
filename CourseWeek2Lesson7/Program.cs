@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CourseWeek2Lesson7
 {
@@ -6,7 +7,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise4();
+            Exercise5();
         }
 
 
@@ -84,7 +85,23 @@ namespace CourseWeek2Lesson7
                 _ => "nie jest rokiem przestępnym."
             };
             Console.WriteLine($"{year} {result}");
-            
+        }
+
+        private static void Exercise5()
+        {
+            /* 5. Napisz program w C#, który sprawdzi czy podany przez użytkownika wiek uprawnia go do ubiegania się o stanowisko posła, premiera, sentarora, prezydenta.
+                    Dane testowe : 21
+                Rezultat w terminalu :
+                    Możesz zostać posłem    */
+
+            Console.Write("Podaj wiek kandydata aby otrzymać informację o jaki urząd może się ubiegać: ");
+            int age = int.Parse(Console.ReadLine());
+            string result = string.Empty;
+            if (age >= 35) result += "Kandydat może ubiegać się o urząd Prezydenta RP";
+            if (age >= 30) result += result.Length == 0 ? "Kandydat może ubiegać się o urząd Senatora" : " lub Senatora";
+            if (age >= 21) result += result.Length == 0 ? "Kandydat może ubiegać się o urząd Posła na Sejm" : " lub Posła na Sejm";
+            result += result.Length != 0 ? "." : "Kandydat jest zbyt młody by pełnić urząd w państwie polskim.";
+            Console.WriteLine(result);
         }
 
 
