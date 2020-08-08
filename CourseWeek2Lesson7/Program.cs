@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace CourseWeek2Lesson7
@@ -7,7 +8,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise8();
+            Exercise9();
         }
 
 
@@ -169,6 +170,32 @@ namespace CourseWeek2Lesson7
             }
             string evaluationResponse = suitableForRecrutation == true ? "Kandydat dopuszczony do rekrutacji" : "Kandydat nie spełniający wymagań rekrutacyjnych";
             Console.WriteLine(evaluationResponse);
+        }
+
+        public static void Exercise9()
+        {
+            /* 9. Napisz program, który odczyta temperaturę I zwróci nazwę jak w poniższych kryteriach
+                    Temp < 0 – cholernie piździ
+                    Temp 0 – 10 – zimno
+                    Temp 10 – 20 – chłodno
+                    Temp 20 – 30 – w sam raz
+                    Temp 30 – 40 – zaczyna być słabo, bo gorąco
+                    Temp >= 40 – a weź wyprowadzam się na Alaskę.
+                Dane testowe : 41
+                Rezultat w terminalu : a weź wyprowadzam się na Alaskę.     */
+
+            Console.WriteLine("Podaj temperature: ");
+            int temperature = int.Parse(Console.ReadLine());
+            string desc = temperature switch
+            {
+                _ when temperature < 0 => "- Cholernie piździ.",
+                _ when temperature >= 0 && temperature < 10 => "- Zimo.",
+                _ when temperature >= 10 && temperature < 20 => "- Chłodno.",
+                _ when temperature >= 20 && temperature < 30 => "- W sam raz.",
+                _ when temperature >= 30 && temperature < 40 => "- Zaczyna być słabo, bo gorąco.",
+                _ when temperature >= 40 => "-...a weź wyprowadzam się na Alaskę."
+            };
+            Console.WriteLine(desc);
         }
 
 
