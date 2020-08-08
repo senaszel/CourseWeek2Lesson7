@@ -6,6 +6,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
+            Exercise2();
         }
 
 
@@ -25,6 +26,28 @@ namespace CourseWeek2Lesson7
             {
                 Console.WriteLine($"{first} i {second} są równe.");
             }
+        }
+
+        public static int Exercise2()
+        {
+            /* 2. Napisz program w C#, który sprawdzi czy podana przez użytkownika liczba jest parzysta czy nieparzysta.
+                    Dane testowe : 15
+                Rezultat w terminalu :
+                    15 jest liczbą nieparzystą      */
+
+            /* ver 1
+            Console.Write("Podaj liczbę: ");
+            int number = int.Parse(Console.ReadLine());
+            if (number % 2 != 0)
+            {
+                Console.WriteLine($"{number} jest liczbą nieparzystą.");
+            }   */
+
+            Console.Write("Podaj liczbę: ");
+            int number = int.Parse(Console.ReadLine());
+            if (number % 2 != 0) Console.WriteLine($"{number} jest liczbą nieparzystą.");
+            number = number % 2 != 0 ? number : Exercise2();
+            return number;
         }
 
 
