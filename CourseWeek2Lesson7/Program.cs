@@ -8,7 +8,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise10();
+            Exercise11();
         }
 
 
@@ -216,6 +216,36 @@ namespace CourseWeek2Lesson7
 
             string answer = isRectanglable == true ? "Można zbudować trójkąt" : "Nie można zbudować trójkąta";
             Console.WriteLine(answer);
+        }
+
+        public static void Exercise11()
+        {
+            /* 11. Napisz program, który zmieni ocenę ucznia na jej opis wg podanej tabeli:
+                    Ocena Opis
+                        6 Celujący
+                        5 Bardzo dobry
+                        4 Dobry
+                        3 Dostateczny
+                        2 Dopuszczający
+                        1 Niedostateczny
+                    Dane testowe : 3
+                    Rezultat w terminalu : Dostateczny      */
+
+            Console.Write("Podaj ocenę za pomocą liczby: ");
+            int mark = int.Parse(Console.ReadLine());
+
+            Grade grade = mark switch
+            {
+                1 => Grade.Niedostateczna,
+                2 => Grade.Dopuszczająca,
+                3 => Grade.Dostateczna,
+                4 => Grade.Dobra,
+                5 => Grade.BardzoDobra,
+                6 => Grade.Celująca,
+                _ => throw new ArgumentException(message: "invalid enum value", paramName: nameof(Grade)),
+            };
+            
+            Console.WriteLine($"Ocena: {grade}");
         }
 
 
