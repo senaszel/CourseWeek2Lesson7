@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 namespace CourseWeek2Lesson7
 {
@@ -8,7 +9,7 @@ namespace CourseWeek2Lesson7
     {
         static void Main(string[] args)
         {
-            Exercise11();
+            Exercise12();
         }
 
 
@@ -244,8 +245,33 @@ namespace CourseWeek2Lesson7
                 6 => Grade.Celująca,
                 _ => throw new ArgumentException(message: "invalid enum value", paramName: nameof(Grade)),
             };
-            
+
             Console.WriteLine($"Ocena: {grade}");
+        }
+
+        public static void Exercise12()
+        {
+            /* 12. Napisz program, który pobierze numer dnia tygodnia i wyświetli jego nazwę
+                    Dane testowe : 4
+                    Rezultat w terminalu : Czwartek     */
+
+            Day day = new Day();
+            Console.Write("Podaj numer dnia tygodnia a program wyświetli jego nazwę: ");
+            day.Number = int.Parse(Console.ReadLine());
+            day.Name = day.Number switch
+            {
+                1 => DayOfWeek.Monday,
+                2 => DayOfWeek.Tuesday,
+                3 => DayOfWeek.Wednesday,
+                4 => DayOfWeek.Thursday,
+                5 => DayOfWeek.Friday,
+                6 => DayOfWeek.Saturday,
+                7 => DayOfWeek.Sunday,
+                _ => throw new ArgumentException(message: "non-existent day of the week", paramName: nameof(DayOfWeek))
+            };
+
+            var cultureInfo = new CultureInfo("pl-PL");
+            Console.WriteLine($"{day.Number} dniem tygodnia jest {cultureInfo.DateTimeFormat.GetDayName(day.Name)}");
         }
 
 
